@@ -1,0 +1,19 @@
+# Binaries
+/kafkagrep
+/seed
+*.exe
+*.test
+*.out
+
+# Test and coverage artifacts
+coverage.*
+
+# Local data and logs
+*.log
+data/
+
+# Editors and OS
+.DS_Store
+.idea/
+.vscode/
+*.swp

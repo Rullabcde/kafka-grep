@@ -1,0 +1,13 @@
+services:
+  kafkagrep:
+    build: .
+    ports:
+      - '8080:8080'
+    extra_hosts:
+      # Linux: reach a broker running on the Docker host.
+      - 'host.docker.internal:host-gateway'
+    command: ['-brokers=${KAFKA_BROKERS:-host.docker.internal:9092}', '-web=:8080']
+
+# Usage:
+#   KAFKA_BROKERS=kafka.example.com:9092 docker compose up --build
+#   docker compose run --rm kafkagrep -brokers=kafka.example.com:9092 -topics=orders -q=order-
